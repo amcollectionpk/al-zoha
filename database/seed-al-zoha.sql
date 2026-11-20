@@ -293,4 +293,14 @@ INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_prim
 SELECT id, '/assets/dress/barbie-pajama-1.jpg', '2 Pcs Girl''s Stitched Jersey Printed Pajama And Shirt', 0, true FROM products WHERE slug = '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/barbie-pajama-1.jpg');
 
+-- 21) 2 Pcs Women's Stitched Jersey Printed Night Suit (Loved Bow) — Rs. 1,999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, '2 Pcs Women''s Stitched Jersey Printed Night Suit (Loved Bow)', '2-pcs-womens-stitched-jersey-printed-night-suit-loved', 'AZ-D-005', '2 Pcs Women''s Stitched Jersey Printed Night Suit — a soft jersey 2-piece set with a ''Loved'' bow print sleep shirt and matching bow-print sleep trouser. Available in five shirt colours (Lavender, Pink, Yellow, Grey, White). Round neck, comfortable fit, perfect for a good night''s sleep.
+
+Fabric: Jersey. Pattern: Printed. Neck Type: Round Neck. Product Feature: Size Chart Attached. Available Sizes: Medium, Large, X-Large. Number Of Pieces: 2 Pcs. Package Includes: 1 x Sleep Shirt, 1 x Sleep Trouser. Shirt Length: 30 Inches. Shirt Chest: 23 Inches. Shirt Shoulder: 15 Inches. Arm Length: 11 Inches. Trouser Length: 39 Inches. Trouser Waist: 36 Inches. Trouser Hip: 23 Inches. Product Code: MZ2098204608DK. Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1999, NULL, '/assets/dress/loved-nightsuit-1.jpg', 10, true, true FROM categories WHERE slug = 'dress'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/dress/loved-nightsuit-1.jpg', '2 Pcs Women''s Stitched Jersey Printed Night Suit (Loved Bow)', 0, true FROM products WHERE slug = '2-pcs-womens-stitched-jersey-printed-night-suit-loved'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/loved-nightsuit-1.jpg');
+
 COMMIT;
