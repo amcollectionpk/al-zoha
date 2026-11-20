@@ -546,7 +546,12 @@
   /* ---------- PRODUCT GALLERY: extra images per product slug ---------- */
   var PRODUCT_GALLERY = {
     'mens-bomber-zip-hoodie-track-suit-black-grey': ['/assets/hoodies/bomber-track-grey-1.jpg'],
-    'mens-color-block-hoodie-track-suit-red-tan': ['/assets/hoodies/colorblock-track-tan-1.jpg']
+    'mens-color-block-hoodie-track-suit-red-tan': ['/assets/hoodies/colorblock-track-tan-1.jpg'],
+    '6-5-inch-lcd-drawing-tablet-for-kids': ['/assets/toys/lcd-tablet-2.jpg', '/assets/toys/lcd-tablet-3.jpg', '/assets/toys/lcd-tablet-4.jpg', '/assets/toys/lcd-tablet-5.jpg'],
+    'hd-projection-flashlight-for-kids': ['/assets/toys/flashlight-2.jpg', '/assets/toys/flashlight-3.jpg', '/assets/toys/flashlight-4.jpg', '/assets/toys/flashlight-5.jpg', '/assets/toys/flashlight-6.jpg', '/assets/toys/flashlight-7.jpg', '/assets/toys/flashlight-video.mp4'],
+    'wooden-abc-puzzle-for-kids': ['/assets/toys/abc-puzzle-2.jpg'],
+    'pack-of-2-magic-water-coloring-books-for-kids': ['/assets/toys/waterbook-2.jpg', '/assets/toys/waterbook-3.jpg', '/assets/toys/waterbook-video.mp4'],
+    'wooden-number-puzzle-for-kids-123': ['/assets/toys/number-puzzle-2.jpg', '/assets/toys/number-puzzle-3.jpg']
   };
 
   function viewProduct(slug) {
