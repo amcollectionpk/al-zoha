@@ -28,6 +28,10 @@ INSERT INTO categories (name, slug, description, image_url, sort_order) VALUES
     ('Toys', 'toys', 'Toys for kids at Al-Zoha.', '/assets/toys/lcd-tablet-1.jpg', 4)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, description = EXCLUDED.description, sort_order = EXCLUDED.sort_order;
 
+INSERT INTO categories (name, slug, description, image_url, sort_order) VALUES
+    ('Dress', 'dress', 'Dresses and night suits at Al-Zoha.', '/assets/dress/penguin-nightsuit-1.jpg', 5)
+ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, description = EXCLUDED.description, sort_order = EXCLUDED.sort_order;
+
 -- 1) Men's Black Wheel Watch (Green Accent) — Rs. 2,499
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
 SELECT id, 'Men''s Black Wheel Watch (Green Accent)', 'mens-black-wheel-watch-green-accent', 'AZ-W-001', 'Men''s Black Wheel Watch with Green Accent — a stylish wristwatch, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/wheel-watch-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
@@ -230,5 +234,53 @@ ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXC
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/toys/cactus-1.jpg', 'Plush Dancing Cactus Toy for Kids', 0, true FROM products WHERE slug = 'plush-dancing-cactus-toy-for-kids'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/cactus-1.jpg');
+
+-- 17) Penguin Print 2-Piece Night Suit for Boys 1-6Y — Rs. 1,199
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Penguin Print 2-Piece Night Suit for Boys 1-6Y', 'penguin-print-2-piece-night-suit-for-boys-1-6y', 'AZ-D-001', 'This adorable 2-piece night suit is perfect for your little one''s cozy nights and playful days. Designed with a trendy penguin print that''s sure to delight, it''s ideal for summer nights and casual wear. Made from premium quality cotton jersey, it''s breathable, soft, and gentle on sensitive skin, ensuring your child stays comfortable all day long. The stylish design and durable construction make it a smart choice for parents who want both fashion and function.
+
+The grey t-shirt features a fun dabbing penguin graphic, while the navy shorts are printed with matching penguin patterns for a cohesive look. This set is crafted for durability and everyday wear, making it a practical addition to any boy''s wardrobe. The cotton material keeps your child cool and comfortable, even during the hottest months. It''s a stylish, new arrival that combines comfort with modern design.
+
+- Premium quality cotton jersey for softness and breathability
+- Stylish penguin print design that''s trendy and fun
+- Durable construction for long-lasting wear
+- Perfect for boys aged 1-6 years
+- Ideal for daily wear, sleep, or casual outings
+- New arrival with best price in Pakistan
+
+Material: Cotton Jersey. Pattern: Printed. Gender: Boy''s. Available Sizes: 1-2 Years, 3-4 Years, 5-6 Years. Number Of Pieces: 2 Pcs. Package Includes: 1 x Shirt, 1 x Shorts. Color: Grey. Product Code: MZ1276200172ILWR. Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1199, NULL, '/assets/dress/penguin-nightsuit-1.jpg', 10, true, true FROM categories WHERE slug = 'dress'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/dress/penguin-nightsuit-1.jpg', 'Penguin Print 2-Piece Night Suit for Boys', 0, true FROM products WHERE slug = 'penguin-print-2-piece-night-suit-for-boys-1-6y'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/penguin-nightsuit-1.jpg');
+
+-- 18) Navy Blue Whale Print 2-Piece Night Suit for Boys 1-6Y — Rs. 1,199
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Navy Blue Whale Print 2-Piece Night Suit for Boys 1-6Y', 'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y', 'AZ-D-002', 'This adorable 2-piece night suit is perfect for your little one''s summer nights and daily wear. Designed with a charming whale print on the navy blue shirt and stylish black-and-white striped shorts, it''s both playful and practical. Made from premium quality cotton jersey, it ensures maximum comfort and breathability, making it ideal for Pakistan''s warm climate. The durable stitching and soft fabric guarantee long-lasting wear, even with active toddlers.
+
+The set is stylish enough for casual outings and cozy enough for bedtime. Its trendy design appeals to modern Pakistani parents who want their kids to look fashionable without compromising on comfort. The cotton material is gentle on sensitive skin and easy to care for, ensuring durability through frequent washing.
+
+- Premium quality cotton jersey for softness and breathability
+- Stylish whale print on shirt and striped shorts for trendy appeal
+- Durable stitching for long-lasting wear
+- Perfect fit for boys aged 1-6 years
+- Ideal for summer nights and daily wear
+- Best price in Pakistan for this quality and design
+
+Material: Cotton Jersey. Pattern: Printed. Gender: Boy''s. Available Sizes: 1-2 Years, 3-4 Years, 5-6 Years. Number Of Pieces: 2 Pcs. Package Includes: 1 x Shirt, 1 x Shorts. Color: Blue. Product Code: MZ1276200171ILWR. Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1199, NULL, '/assets/dress/whale-nightsuit-1.jpg', 10, true, true FROM categories WHERE slug = 'dress'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/dress/whale-nightsuit-1.jpg', 'Navy Blue Whale Print 2-Piece Night Suit for Boys', 0, true FROM products WHERE slug = 'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/whale-nightsuit-1.jpg');
+
+-- 19) 2 Pcs Women's Stitched Jersey Printed Night Suit — Rs. 1,999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, '2 Pcs Women''s Stitched Jersey Printed Night Suit', '2-pcs-womens-stitched-jersey-printed-night-suit', 'AZ-D-003', '2 Pcs Women''s Stitched Jersey Printed Night Suit — a soft, comfortable sleep set with a round-neck printed shirt and matching trousers. Available in eight lovely prints: Spread Happiness butterfly, live your dreams butterflies, a festive bow, a golden bow, a Rose Butterfly print, Hello Kitty, a Cute & Lovely kitten, and a Fall in Love teddy bear. Jersey fabric is breathable and gentle on skin, perfect for a good night''s sleep.
+
+Fabric: Jersey. Pattern: Printed. Neck Type: Round Neck. Product Feature: Comes With Shorts. Available Sizes: Standard Size. Number Of Pieces: 2 Pcs. Package Includes: 1 x Sleep Shirt, 1 x Sleep Trouser. Shirt Length: 28 Inches. Shirt Chest: 22 Inches. Shirt Shoulder: 15 Inches. Arm Length: 11 Inches. Trouser Length: 39 Inches. Trouser Waist: 36 Inches. Trouser Hip: 23 Inches. Product Code: MZ2098204574DK. Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1999, NULL, '/assets/dress/womens-nightsuit-1.jpg', 10, true, true FROM categories WHERE slug = 'dress'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/dress/womens-nightsuit-1.jpg', '2 Pcs Women''s Stitched Jersey Printed Night Suit', 0, true FROM products WHERE slug = '2-pcs-womens-stitched-jersey-printed-night-suit'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/womens-nightsuit-1.jpg');
 
 COMMIT;
