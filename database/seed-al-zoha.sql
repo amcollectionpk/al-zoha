@@ -34,7 +34,7 @@ ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, description = E
 
 -- 1) Men's Black Wheel Watch (Green Accent) — Rs. 2,499
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Black Wheel Watch (Green Accent)', 'mens-black-wheel-watch-green-accent', 'AZ-W-001', 'Men''s Black Wheel Watch with Green Accent — a stylish wristwatch, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/wheel-watch-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
+SELECT id, 'Men''s Black Wheel Watch (Green Accent)', 'mens-black-wheel-watch-green-accent', 'AZ-W-001', 'Men''s Black Wheel Watch with Green Accent — a stylish wristwatch, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/wheel-watch-1.jpg', 10, true, false FROM categories WHERE slug = 'mens-watches'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/wheel-watch-1.jpg', 'Men''s Black Wheel Watch (Green Accent)', 0, true FROM products WHERE slug = 'mens-black-wheel-watch-green-accent'
@@ -42,7 +42,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 2) Women's Digital Bracelet Watch — Rs. 1,999 (Rose Gold / Black / Gold / Silver)
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Women''s Digital Bracelet Watch', 'womens-digital-bracelet-watch', 'AZ-W-002', 'Women''s Digital Bracelet Watch — available in Rose Gold, Black, Gold and Silver, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1999, NULL, '/assets/watches/digital-bracelet-1.jpg', 10, true, true FROM categories WHERE slug = 'womens-watches'
+SELECT id, 'Women''s Digital Bracelet Watch', 'womens-digital-bracelet-watch', 'AZ-W-002', 'Women''s Digital Bracelet Watch — available in Rose Gold, Black, Gold and Silver, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1999, NULL, '/assets/watches/digital-bracelet-1.jpg', 10, true, false FROM categories WHERE slug = 'womens-watches'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/digital-bracelet-1.jpg', 'Women''s Digital Bracelet Watch', 0, true FROM products WHERE slug = 'womens-digital-bracelet-watch'
@@ -50,7 +50,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 3) Men's Bomber Zip Track Suit (Black + Grey) — Rs. 2,999
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Bomber Zip Track Suit (Black + Grey)', 'mens-bomber-zip-hoodie-track-suit-black-grey', 'AZ-H-001', 'Men''s Bomber Zip Track Suit in Black and Grey — winter warm, shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/bomber-track-black-1.jpg', 10, true, true FROM categories WHERE slug = 'hoodies'
+SELECT id, 'Men''s Bomber Zip Track Suit (Black + Grey)', 'mens-bomber-zip-hoodie-track-suit-black-grey', 'AZ-H-001', 'Men''s Bomber Zip Track Suit in Black and Grey — winter warm, shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/bomber-track-black-1.jpg', 10, true, false FROM categories WHERE slug = 'hoodies'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/hoodies/bomber-track-black-1.jpg', 'Men''s Bomber Zip Track Suit (Black)', 0, true FROM products WHERE slug = 'mens-bomber-zip-hoodie-track-suit-black-grey'
@@ -61,7 +61,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 4) Men's Brown Winter Track Suit — Rs. 2,999
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Brown Winter Track Suit', 'mens-brown-winter-hoodie-track-suit', 'AZ-H-002', 'Men''s Brown Winter Track Suit — warm winter wear, shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/brown-track-1.jpg', 10, true, true FROM categories WHERE slug = 'hoodies'
+SELECT id, 'Men''s Brown Winter Track Suit', 'mens-brown-winter-hoodie-track-suit', 'AZ-H-002', 'Men''s Brown Winter Track Suit — warm winter wear, shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/brown-track-1.jpg', 10, true, false FROM categories WHERE slug = 'hoodies'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/hoodies/brown-track-1.jpg', 'Men''s Brown Winter Track Suit', 0, true FROM products WHERE slug = 'mens-brown-winter-hoodie-track-suit'
@@ -69,7 +69,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 5) Men's Color Block Hoodie Track Suit (Red + Tan) — Rs. 2,999
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Color Block Hoodie Track Suit (Red + Tan)', 'mens-color-block-hoodie-track-suit-red-tan', 'AZ-H-003', 'Men''s Color Block Hoodie Track Suit in Red and Tan — shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/colorblock-track-red-1.jpg', 10, true, true FROM categories WHERE slug = 'hoodies'
+SELECT id, 'Men''s Color Block Hoodie Track Suit (Red + Tan)', 'mens-color-block-hoodie-track-suit-red-tan', 'AZ-H-003', 'Men''s Color Block Hoodie Track Suit in Red and Tan — shown exactly as pictured. Sizes M / L / XL / XXL. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/hoodies/colorblock-track-red-1.jpg', 10, true, false FROM categories WHERE slug = 'hoodies'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/hoodies/colorblock-track-red-1.jpg', 'Men''s Color Block Hoodie Track Suit (Red)', 0, true FROM products WHERE slug = 'mens-color-block-hoodie-track-suit-red-tan'
@@ -80,7 +80,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 6) Men's Silver Nautilus Watch — Rs. 2,999
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Silver Nautilus Watch', 'mens-silver-nautilus-watch', 'AZ-W-003', 'Men''s Silver Nautilus Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/watches/nautilus-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
+SELECT id, 'Men''s Silver Nautilus Watch', 'mens-silver-nautilus-watch', 'AZ-W-003', 'Men''s Silver Nautilus Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/watches/nautilus-1.jpg', 10, true, false FROM categories WHERE slug = 'mens-watches'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/nautilus-1.jpg', 'Men''s Silver Nautilus Watch', 0, true FROM products WHERE slug = 'mens-silver-nautilus-watch'
@@ -88,7 +88,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 7) Men's LONGBO Silver Watch — Rs. 2,999
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s LONGBO Silver Watch', 'mens-longbo-silver-watch', 'AZ-W-004', 'Men''s LONGBO Silver Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/watches/longbo-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
+SELECT id, 'Men''s LONGBO Silver Watch', 'mens-longbo-silver-watch', 'AZ-W-004', 'Men''s LONGBO Silver Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2999, NULL, '/assets/watches/longbo-1.jpg', 10, true, false FROM categories WHERE slug = 'mens-watches'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/longbo-1.jpg', 'Men''s LONGBO Silver Watch', 0, true FROM products WHERE slug = 'mens-longbo-silver-watch'
@@ -96,7 +96,7 @@ AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.i
 
 -- 8) Men's Black DENVOSI Watch — Rs. 2,499
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
-SELECT id, 'Men''s Black DENVOSI Watch', 'mens-black-denvosi-watch', 'AZ-W-005', 'Men''s Black DENVOSI Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/denvosi-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
+SELECT id, 'Men''s Black DENVOSI Watch', 'mens-black-denvosi-watch', 'AZ-W-005', 'Men''s Black DENVOSI Watch — shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/denvosi-1.jpg', 10, true, false FROM categories WHERE slug = 'mens-watches'
 ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/denvosi-1.jpg', 'Men''s Black DENVOSI Watch', 0, true FROM products WHERE slug = 'mens-black-denvosi-watch'
