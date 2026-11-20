@@ -212,4 +212,23 @@ INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_prim
 SELECT id, '/assets/toys/lamp-1.jpg', 'Rechargeable Panda Table Lamp', 0, true FROM products WHERE slug = 'rechargeable-panda-table-lamp-multicolor'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/lamp-1.jpg');
 
+-- 16) Plush Dancing Cactus Toy for Kids 1+ with 120 English Songs — Rs. 1,599
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Plush Dancing Cactus Toy for Kids 1+ with 120 English Songs', 'plush-dancing-cactus-toy-for-kids', 'AZ-T-008', 'This adorable plush dancing cactus is the perfect gift for your little one in Pakistan. It is designed to entertain and engage kids with its lively movements and cheerful tunes, making it ideal for playtime at home or during family gatherings. The soft, plush material is gentle on delicate skin and safe for children aged one year and above, ensuring hours of fun without worry.
+
+Made with durable, high-quality plush fabric, this cactus toy withstands daily play and rough handling. Its stylish green design and glowing lights add a touch of magic to any room, while the built-in speaker delivers 120 English songs that keep kids smiling.
+
+- Can Dance
+- Can Sing
+- Can Record
+- 120 English Songs
+- Durable Plush Material
+- Safe for Kids 1 Year and Above
+
+Material: Plush. Color: Green. Size: 12.6 x 4.7 inch. Package Includes: 1 x Dancing Cactus. Product Code: MZ691200011AIBSFD. Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1599, NULL, '/assets/toys/cactus-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/cactus-1.jpg', 'Plush Dancing Cactus Toy for Kids', 0, true FROM products WHERE slug = 'plush-dancing-cactus-toy-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/cactus-1.jpg');
+
 COMMIT;
