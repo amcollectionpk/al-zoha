@@ -9,7 +9,7 @@
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.12.0"
   },
-  "description": "Al-Zoha - ladies accessories e-commerce website for Pakistan (storefront + admin dashboard + Node.js/Express backend + PostgreSQL)",
+  "description": "Al-Zoha - mother care & baby products e-commerce website for Pakistan (storefront + admin dashboard + Node.js/Express backend + PostgreSQL)",
   "devDependencies": {
     "nodemon": "^3.1.4"
   },
