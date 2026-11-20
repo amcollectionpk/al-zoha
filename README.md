@@ -1,7 +1,7 @@
-# Al-Zoha — Ladies Accessories Store
+# Al-Zoha — Mother Care & Baby Products Store
 
 Database-backed e-commerce website (storefront + admin dashboard) for **Al-Zoha**,
-a ladies accessories brand in Pakistan. Same design as AM Collection, in
+a mother care & baby products brand in Pakistan. Same design as AM Collection, in
 Al-Zoha's own colours: **black + gold + cream** (no red).
 
 - Storefront: product search/filter, product pages with photo galleries,
