@@ -1,5 +1,5 @@
 // DEPLOY-TRIGGER-20261117-1535 auto-deploy test, no behavior change
-/* Al-Zoha — Ladies Accessories storefront.
+/* Al-Zoha — Mother Care & Baby Products storefront.
    Screens (mobile-app style): Home / Categories / Product Details / My Cart /
    Checkout / Order Placed / Account / Special Offers (+ Shop, Wishlist, Track,
    Policies, FAQs, Contact, Complaint, Payment Methods).
@@ -452,7 +452,7 @@
         { name: 'Dress', href: '#/shop?category=dress', img: '/assets/dress/penguin-nightsuit-1.jpg', count: dressCount }
       ];
       app.innerHTML =
-        '<a class="home-banner" href="#/shop"><img src="/assets/poster.jpg" alt="Al-Zoha \u2014 Ladies Accessories, Elegance Crafted for Her"></a>' +
+        '<a class="home-banner" href="#/shop"><img src="/assets/poster.jpg" alt="Al-Zoha \u2014 Mother Care & Baby Products, Elegance Crafted for Her"></a>' +
         '<section class="hero-slider" id="heroSlider" aria-label="Featured toys">' +
           '<div class="hero-slides" id="heroSlides">' + slides.map(function (s, i) {
             return '<div class="hero-slide"><section class="hero"><div>' +
@@ -504,7 +504,7 @@
         '<div class="premium-strip"><div class="premium-track">' + premiumStrip + premiumStrip + '</div></div>' +
         '<div class="premium-text"><span class="premium-pill">PREMIUM COLLECTION</span>' +
         '<h2>Elegance, Crafted for Her</h2>' +
-        '<p>Ladies accessories for every moment — fun toys for kids, comfy night suits, and honest prices. Every product is selected for quality, durability, and a look that fits your everyday life.</p>' +
+        '<p>Mother care & baby products for every moment — fun toys for kids, comfy night suits, and honest prices. Every product is selected for quality, durability, and a look that fits your everyday life.</p>' +
         '<a class="btn btn-primary" href="#/shop">Explore Collection</a></div>' +
         '</section>' +
         '<div class="outlet-banner">' +
@@ -965,7 +965,7 @@
   }
   function viewAbout() {
     app.innerHTML = '<h1 class="section-title">About Al-Zoha</h1><div id="aboutPic"></div><div class="card policy-body">' +
-      '<p>Al-Zoha is a ladies accessories store in Pakistan, bringing fun toys and comfy night suits to your doorstep at honest prices.</p>' +
+      '<p>Al-Zoha is a mother care & baby products store in Pakistan, bringing fun toys and comfy night suits to your doorstep at honest prices.</p>' +
       '<p>Elegance, Crafted for Her — Cash on Delivery across Pakistan. Pay cash at your doorstep, or through JazzCash and Easypaisa.</p>' +
       '<p>Delivery is Rs. 200, and FREE on orders of Rs. 5,000 or more.</p>' +
       '<p><a class="btn btn-primary" href="#/shop">Shop Now</a>' + (AMC.WHATSAPP_LINK ? ' <a class="btn" href="' + AMC.WHATSAPP_LINK + '" target="_blank" rel="noopener">WhatsApp Us</a>' : '') + '</p></div>';
