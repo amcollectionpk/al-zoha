@@ -552,7 +552,8 @@
     'wooden-abc-puzzle-for-kids': ['/assets/toys/abc-puzzle-2.jpg'],
     'pack-of-2-magic-water-coloring-books-for-kids': ['/assets/toys/waterbook-2.jpg', '/assets/toys/waterbook-3.jpg', '/assets/toys/waterbook-video.mp4'],
     'wooden-number-puzzle-for-kids-123': ['/assets/toys/number-puzzle-2.jpg', '/assets/toys/number-puzzle-3.jpg'],
-    'infrared-helicopter-toy-for-kids': ['/assets/toys/helicopter-2.jpg', '/assets/toys/helicopter-3.jpg', '/assets/toys/helicopter-4.jpg', '/assets/toys/helicopter-5.jpg']
+    'infrared-helicopter-toy-for-kids': ['/assets/toys/helicopter-2.jpg', '/assets/toys/helicopter-3.jpg', '/assets/toys/helicopter-4.jpg', '/assets/toys/helicopter-5.jpg'],
+    'rechargeable-panda-table-lamp-multicolor': ['/assets/toys/lamp-2.jpg', '/assets/toys/lamp-3.jpg', '/assets/toys/lamp-4.jpg', '/assets/toys/lamp-5.jpg']
   };
 
   function viewProduct(slug) {
