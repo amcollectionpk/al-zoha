@@ -206,19 +206,19 @@
   }
 
   /* ---------- HOME ---------- */
-  /* Category tiles use the NEW watch photos (old watch-*.jpg removed) */
-  var CAT_TILE_IMG = { "Men's Watches": '/assets/watches/wheel-watch-1.jpg', "Women's Watches": '/assets/watches/digital-bracelet-1.jpg', "Hoodies / Track Suits": '/assets/hoodies/bomber-track-black-1.jpg', "Dress": '/assets/dress/penguin-nightsuit-1.jpg', "Toys": '/assets/toys/lcd-tablet-1.jpg' };
-  function catTileImg(c) { return CAT_TILE_IMG[c.name] || c.image_url || c.image || '/assets/watches/wheel-watch-1.jpg'; }
+  /* Category tiles use the Toys and Dress photos */
+  var CAT_TILE_IMG = { "Dress": '/assets/dress/penguin-nightsuit-1.jpg', "Toys": '/assets/toys/lcd-tablet-1.jpg' };
+  function catTileImg(c) { return CAT_TILE_IMG[c.name] || c.image_url || c.image || '/assets/dress/penguin-nightsuit-1.jpg'; }
   /* ---------- HERO SLIDER (Home): 13 slides, auto-play 2s, arrows + dots + swipe ---------- */
   var heroTimer = null;
   function heroSlides(all) {
     function bySlug(slug) { var f = all.filter(function (p) { return p.slug === slug; }); return f[0] || null; }
     var defs = [
-      { slug: 'mens-black-wheel-watch-green-accent', kick: "MEN'S WATCHES", title: 'Black Wheel Watch,<br><em>Green Accent</em>', text: "Men's Black Wheel Watch (Green Accent) — Cash on Delivery across Pakistan", cta: 'Shop Now', href: '#/product/mens-black-wheel-watch-green-accent', img: '/assets/watches/wheel-watch-1.jpg', alt: "Men's Black Wheel Watch (Green Accent)" },
-      { slug: 'womens-digital-bracelet-watch', kick: "WOMEN'S WATCHES", title: 'Digital Bracelet Watch<br><em>Four Colours</em>', text: "Women's Digital Bracelet Watch — Rose Gold, Black, Gold & Silver — Cash on Delivery across Pakistan", cta: 'Shop Now', href: '#/product/womens-digital-bracelet-watch', img: '/assets/watches/digital-bracelet-1.jpg', alt: "Women's Digital Bracelet Watch" },
-      { slug: 'mens-silver-nautilus-watch', kick: "MEN'S WATCHES", title: 'Silver Nautilus<br><em>Classic Style</em>', text: "Men's Silver Nautilus Watch — Cash on Delivery across Pakistan", cta: 'Shop Now', href: '#/product/mens-silver-nautilus-watch', img: '/assets/watches/nautilus-1.jpg', alt: "Men's Silver Nautilus Watch" },
-      { slug: 'mens-longbo-silver-watch', kick: "MEN'S WATCHES", title: 'LONGBO Silver<br><em>Premium Look</em>', text: "Men's LONGBO Silver Watch — Cash on Delivery across Pakistan", cta: 'Shop Now', href: '#/product/mens-longbo-silver-watch', img: '/assets/watches/longbo-1.jpg', alt: "Men's LONGBO Silver Watch" },
-      { slug: 'mens-black-denvosi-watch', kick: "MEN'S WATCHES", title: 'Black DENVOSI<br><em>Bold &amp; Stylish</em>', text: "Men's Black DENVOSI Watch — Cash on Delivery across Pakistan", cta: 'Shop Now', href: '#/product/mens-black-denvosi-watch', img: '/assets/watches/denvosi-1.jpg', alt: "Men's Black DENVOSI Watch" }
+      { slug: '6-5-inch-lcd-drawing-tablet-for-kids', kick: 'TOYS', title: 'LCD Drawing Tablet<br><em>for Kids</em>', text: '6.5" LCD Drawing Tablet for Kids — Cash on Delivery across Pakistan', cta: 'Shop Now', href: '#/product/6-5-inch-lcd-drawing-tablet-for-kids', img: '/assets/toys/lcd-tablet-1.jpg', alt: '6.5" LCD Drawing Tablet for Kids' },
+      { slug: 'hd-projection-flashlight-for-kids', kick: 'TOYS', title: 'HD Projection Flashlight<br><em>for Kids</em>', text: 'HD Projection Flashlight for Kids — Cash on Delivery across Pakistan', cta: 'Shop Now', href: '#/product/hd-projection-flashlight-for-kids', img: '/assets/toys/flashlight-1.jpg', alt: 'HD Projection Flashlight for Kids' },
+      { slug: 'infrared-helicopter-toy-for-kids', kick: 'TOYS', title: 'Infrared Helicopter<br><em>for Kids</em>', text: 'Infrared Helicopter Toy for Kids — Cash on Delivery across Pakistan', cta: 'Shop Now', href: '#/product/infrared-helicopter-toy-for-kids', img: '/assets/toys/helicopter-1.jpg', alt: 'Infrared Helicopter Toy for Kids' },
+      { slug: 'plush-dancing-cactus-toy-for-kids', kick: 'TOYS', title: 'Plush Dancing Cactus<br><em>120 Songs</em>', text: 'Plush Dancing Cactus Toy for Kids — Cash on Delivery across Pakistan', cta: 'Shop Now', href: '#/product/plush-dancing-cactus-toy-for-kids', img: '/assets/toys/cactus-1.jpg', alt: 'Plush Dancing Cactus Toy for Kids' },
+      { slug: 'rechargeable-panda-table-lamp-multicolor', kick: 'TOYS', title: 'Rechargeable Panda<br><em>Table Lamp</em>', text: 'Rechargeable Panda Table Lamp — Cash on Delivery across Pakistan', cta: 'Shop Now', href: '#/product/rechargeable-panda-table-lamp-multicolor', img: '/assets/toys/lamp-1.jpg', alt: 'Rechargeable Panda Table Lamp' }
     ];
     return defs.map(function (d) {
       var p = d.slug ? bySlug(d.slug) : null;
@@ -266,9 +266,13 @@
   /* ---------- HOODIE RAIL (Home): hanger-style auto slider ---------- */
   var hoodieTimer = null;
   var hoodieSlides = [
-    { slug: 'mens-bomber-zip-hoodie-track-suit-black-grey', name: "Men's Bomber Zip Track Suit", img: '/assets/hoodies/bomber-track-black-1.jpg' },
-    { slug: 'mens-brown-winter-hoodie-track-suit', name: "Men's Brown Winter Track Suit", img: '/assets/hoodies/brown-track-1.jpg' },
-    { slug: 'mens-color-block-hoodie-track-suit-red-tan', name: "Men's Color Block Hoodie Track Suit", img: '/assets/hoodies/colorblock-track-red-1.jpg' }
+    { slug: 'penguin-print-2-piece-night-suit-for-boys-1-6y', name: 'Penguin Print Night Suit', img: '/assets/dress/penguin-nightsuit-1.jpg' },
+    { slug: 'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y', name: 'Whale Print Night Suit', img: '/assets/dress/whale-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit', name: "Women's Printed Night Suit", img: '/assets/dress/womens-nightsuit-1.jpg' },
+    { slug: '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt', name: "Girl's Pajama And Shirt", img: '/assets/dress/barbie-pajama-1.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-loved', name: 'Loved Bow Night Suit', img: '/assets/dress/loved-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit', name: 'Checkered Night Suit', img: '/assets/dress/checkered-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love', name: 'Love Prints Night Suit', img: '/assets/dress/love-nightsuit-1.jpg' }
   ];
   function initHoodieRail() {
     var rail = document.getElementById('hoodieRail');
@@ -415,18 +419,18 @@
     Promise.all([loadCategories(), loadProducts({ sort: 'popular' })]).then(function (r) {
       var cats = r[0], all = r[1];
       var slides = heroSlides(all);
-      var hoodieCount = all.filter(function (p) { return /hoodie/i.test(p.slug); }).length;
-      var watchCount = all.filter(function (p) { return p.category_slug === 'mens-watches' || p.category_slug === 'womens-watches'; }).length;
+      var toysCount = all.filter(function (p) { return p.category_slug === 'toys'; }).length;
+      var dressCount = all.filter(function (p) { return p.category_slug === 'dress'; }).length;
       var premiumStrip = all.filter(function (p) { return p.category_id; }).map(function (p) {
         return '<a href="#/product/' + esc(p.slug) + '"><img src="' + esc(p.image_url || '') + '" alt="' + esc(p.name) + '" loading="lazy"></a>';
       }).join('');
       var catTiles = [
-        { name: 'Watches', href: '#/shop?search=watch', img: '/assets/watches/wheel-watch-1.jpg', count: watchCount },
-        { name: 'Hoodies', href: '#/shop?search=hoodie', img: '/assets/hoodies/bomber-track-black-1.jpg', count: hoodieCount }
+        { name: 'Toys', href: '#/shop?category=toys', img: '/assets/toys/lcd-tablet-1.jpg', count: toysCount },
+        { name: 'Dress', href: '#/shop?category=dress', img: '/assets/dress/penguin-nightsuit-1.jpg', count: dressCount }
       ];
       app.innerHTML =
         '<a class="home-banner" href="#/shop"><img src="/assets/poster.jpg" alt="Al-Zoha \u2014 Ladies Accessories, Elegance Crafted for Her"></a>' +
-        '<section class="hero-slider" id="heroSlider" aria-label="Featured watches">' +
+        '<section class="hero-slider" id="heroSlider" aria-label="Featured toys">' +
           '<div class="hero-slides" id="heroSlides">' + slides.map(function (s, i) {
             return '<div class="hero-slide"><section class="hero"><div>' +
               '<span class="kick">' + esc(s.kick) + '</span>' +
@@ -442,8 +446,8 @@
             return '<button type="button" data-dot="' + i + '" aria-label="Go to slide ' + (i + 1) + '"' + (i === 0 ? ' class="active"' : '') + '></button>';
           }).join('') + '</div>' +
         '</section>' +
-        '<h2 class="section-title">Track Suits</h2>' +
-        '<section class="hoodie-rail" id="hoodieRail" aria-label="Hoodies">' +
+        '<h2 class="section-title">Night Suits</h2>' +
+        '<section class="hoodie-rail" id="hoodieRail" aria-label="Night Suits">' +
           '<div class="hoodie-rail-bar"></div>' +
           '<div class="hoodie-track" id="hoodieTrack">' + hoodieSlides.map(function (h, i) {
             return '<button class="hoodie-card' + (i === 0 ? ' active' : '') + '" type="button" data-idx="' + i + '" data-slug="' + esc(h.slug) + '">' +
@@ -477,7 +481,7 @@
         '<div class="premium-strip"><div class="premium-track">' + premiumStrip + premiumStrip + '</div></div>' +
         '<div class="premium-text"><span class="premium-pill">PREMIUM COLLECTION</span>' +
         '<h2>Elegance, Crafted for Her</h2>' +
-        '<p>Ladies accessories for every moment — elegant watches, stylish track suits, and honest prices. Every product is selected for quality, durability, and a look that fits your everyday life.</p>' +
+        '<p>Ladies accessories for every moment — fun toys for kids, comfy night suits, and honest prices. Every product is selected for quality, durability, and a look that fits your everyday life.</p>' +
         '<a class="btn btn-primary" href="#/shop">Explore Collection</a></div>' +
         '</section>' +
         '<div class="outlet-banner">' +
@@ -527,7 +531,8 @@
   function viewCategories() {
     Promise.all([loadCategories(), loadProducts({})]).then(function (r) {
       var cats = r[0], all = r[1];
-      app.innerHTML = '<h1 class="section-title">Categories</h1><div class="tiles">' + cats.map(function (c) {
+      var liveCats = cats.filter(function (c) { return all.some(function (p) { return p.category_slug === c.slug; }); });
+      app.innerHTML = '<h1 class="section-title">Categories</h1><div class="tiles">' + liveCats.map(function (c) {
         var count = all.filter(function (p) { return p.category_slug === c.slug; }).length;
         return '<a class="tile" href="#/shop?category=' + encodeURIComponent(c.slug) + '"><img src="' + esc(catTileImg(c)) + '" alt="' + esc(c.name) + '"><small>' + count + (count === 1 ? ' product' : ' products') + '</small><span>' + esc(c.name) + '</span></a>';
       }).join('') + '</div>' +
@@ -559,8 +564,6 @@
   /* ---------- PRODUCT DETAILS ---------- */
   /* ---------- PRODUCT GALLERY: extra images per product slug ---------- */
   var PRODUCT_GALLERY = {
-    'mens-bomber-zip-hoodie-track-suit-black-grey': ['/assets/hoodies/bomber-track-grey-1.jpg'],
-    'mens-color-block-hoodie-track-suit-red-tan': ['/assets/hoodies/colorblock-track-tan-1.jpg'],
     '6-5-inch-lcd-drawing-tablet-for-kids': ['/assets/toys/lcd-tablet-2.jpg', '/assets/toys/lcd-tablet-3.jpg', '/assets/toys/lcd-tablet-4.jpg', '/assets/toys/lcd-tablet-5.jpg'],
     'hd-projection-flashlight-for-kids': ['/assets/toys/flashlight-2.jpg', '/assets/toys/flashlight-3.jpg', '/assets/toys/flashlight-4.jpg', '/assets/toys/flashlight-5.jpg', '/assets/toys/flashlight-6.jpg', '/assets/toys/flashlight-7.jpg', '/assets/toys/flashlight-video.mp4'],
     'wooden-abc-puzzle-for-kids': ['/assets/toys/abc-puzzle-2.jpg'],
@@ -826,13 +829,13 @@
   /* ---------- SPECIAL OFFERS ---------- */
   function viewOffers() {
     loadProducts({ sort: 'price_asc' }).then(function (all) {
-      var watches = all.filter(function (p) { return p.category_slug === 'mens-watches' || p.category_slug === 'womens-watches'; });
-      var trackSuits = all.filter(function (p) { return /hoodie/i.test(p.slug); });
+      var toys = all.filter(function (p) { return p.category_slug === 'toys'; });
+      var dress = all.filter(function (p) { return p.category_slug === 'dress'; });
       app.innerHTML = '<h1 class="section-title">Special Offers</h1>' +
         '<div class="offer-banner"><div><b>FREE Delivery</b><br><span class="muted">On every order of Rs. 5,000 or more — no code needed, applied automatically at checkout.</span></div><a class="btn btn-primary" href="#/shop">Shop Now</a></div>' +
         '<div class="offer-banner"><div><b>Cash on Delivery</b><br><span class="muted">Order now and pay at your doorstep, anywhere in Pakistan. JazzCash and Easypaisa also accepted.</span></div><a class="btn" href="#/cart">My Cart</a></div>' +
-        '<h2 class="section-title">Watches Under Rs. 3,000</h2>' + gridHtml(watches) +
-        '<h2 class="section-title">Winter Track Suits</h2><p class="muted small" style="margin-top:-6px">Add any track suit with a watch to cross Rs. 5,000 and your delivery is free.</p>' + gridHtml(trackSuits);
+        '<h2 class="section-title">Toys Under Rs. 1,600</h2>' + gridHtml(toys) +
+        '<h2 class="section-title">Night Suits</h2><p class="muted small" style="margin-top:-6px">Add a night suit with a toy to cross Rs. 5,000 and your delivery is free.</p>' + gridHtml(dress);
       bindCardButtons(app); window.scrollTo(0, 0);
     });
   }
@@ -932,7 +935,7 @@
   }
   function viewAbout() {
     app.innerHTML = '<h1 class="section-title">About Al-Zoha</h1><div id="aboutPic"></div><div class="card policy-body">' +
-      '<p>Al-Zoha is a ladies accessories store in Pakistan, bringing elegant watches and stylish track suits to your doorstep at honest prices.</p>' +
+      '<p>Al-Zoha is a ladies accessories store in Pakistan, bringing fun toys and comfy night suits to your doorstep at honest prices.</p>' +
       '<p>Elegance, Crafted for Her — Cash on Delivery across Pakistan. Pay cash at your doorstep, or through JazzCash and Easypaisa.</p>' +
       '<p>Delivery is Rs. 200, and FREE on orders of Rs. 5,000 or more.</p>' +
       '<p><a class="btn btn-primary" href="#/shop">Shop Now</a>' + (AMC.WHATSAPP_LINK ? ' <a class="btn" href="' + AMC.WHATSAPP_LINK + '" target="_blank" rel="noopener">WhatsApp Us</a>' : '') + '</p></div>';
