@@ -159,7 +159,15 @@
     '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['1-2 Years', '3-4 Years', '5-6 Years', '7-8 Years', '8-10 Years'],
     '2-pcs-womens-stitched-jersey-printed-night-suit-loved': ['Medium', 'Large', 'X-Large'],
     '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['Medium', 'Large', 'X-Large'],
-    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['Medium', 'Large', 'X-Large']
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-red-butterfly-heart': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-pink-bows': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-orange-floral': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-white-lace-mandala': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-let-love-rise': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-blue-butterfly': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-spread-happiness': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-happy-together': ['Medium', 'Large', 'X-Large']
   };
   /* ---------- COLOURS: per-product colour options (same box style as sizes) ---------- */
   var PRODUCT_COLORS = {
@@ -268,11 +276,26 @@
   var hoodieSlides = [
     { slug: 'penguin-print-2-piece-night-suit-for-boys-1-6y', name: 'Penguin Print Night Suit', img: '/assets/dress/penguin-nightsuit-1.jpg' },
     { slug: 'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y', name: 'Whale Print Night Suit', img: '/assets/dress/whale-nightsuit-1.jpg' },
-    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit', name: "Women's Printed Night Suit", img: '/assets/dress/womens-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit', name: 'Spread Happiness Night Suit', img: '/assets/dress/womens-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-live-your-dreams', name: 'Live Your Dreams Night Suit', img: '/assets/dress/womens-nightsuit-2.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-christmas-bow', name: 'Christmas Bow Night Suit', img: '/assets/dress/womens-nightsuit-3.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-golden-bow', name: 'Golden Bow Night Suit', img: '/assets/dress/womens-nightsuit-4.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-rose-butterfly', name: 'Rose Butterfly Night Suit', img: '/assets/dress/womens-nightsuit-5.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-hello-kitty', name: 'Hello Kitty Night Suit', img: '/assets/dress/womens-nightsuit-6.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-cute-and-lovely', name: 'Cute & Lovely Night Suit', img: '/assets/dress/womens-nightsuit-7.jpg' },
+    { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-fall-in-love', name: 'Fall in Love Night Suit', img: '/assets/dress/womens-nightsuit-8.jpg' },
     { slug: '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt', name: "Girl's Pajama And Shirt", img: '/assets/dress/barbie-pajama-1.jpg' },
     { slug: '2-pcs-womens-stitched-jersey-printed-night-suit-loved', name: 'Loved Bow Night Suit', img: '/assets/dress/loved-nightsuit-1.jpg' },
     { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit', name: 'Checkered Night Suit', img: '/assets/dress/checkered-nightsuit-1.jpg' },
-    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love', name: 'Love Prints Night Suit', img: '/assets/dress/love-nightsuit-1.jpg' }
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love', name: 'I LOVE YOU Night Suit', img: '/assets/dress/love-nightsuit-1.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-red-butterfly-heart', name: 'Red Butterfly Heart Night Suit', img: '/assets/dress/love-nightsuit-2.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-pink-bows', name: 'Pink Bows Night Suit', img: '/assets/dress/love-nightsuit-3.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-orange-floral', name: 'Orange Floral Night Suit', img: '/assets/dress/love-nightsuit-4.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-white-lace-mandala', name: 'White Lace Mandala Night Suit', img: '/assets/dress/love-nightsuit-5.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-let-love-rise', name: 'Let Love Rise Night Suit', img: '/assets/dress/love-nightsuit-6.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-blue-butterfly', name: 'Blue Butterfly Night Suit', img: '/assets/dress/love-nightsuit-7.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-spread-happiness', name: 'Spread Happiness Night Suit', img: '/assets/dress/love-nightsuit-8.jpg' },
+    { slug: '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-happy-together', name: 'Happy Together Night Suit', img: '/assets/dress/love-nightsuit-9.jpg' }
   ];
   function initHoodieRail() {
     var rail = document.getElementById('hoodieRail');
@@ -574,11 +597,18 @@
     'plush-dancing-cactus-toy-for-kids': ['/assets/toys/cactus-2.jpg', '/assets/toys/cactus-3.jpg', '/assets/toys/cactus-4.jpg', '/assets/toys/cactus-5.jpg'],
     'penguin-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/penguin-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
     'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/whale-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
-    '2-pcs-womens-stitched-jersey-printed-night-suit': ['/assets/dress/womens-nightsuit-2.jpg', '/assets/dress/womens-nightsuit-3.jpg', '/assets/dress/womens-nightsuit-4.jpg', '/assets/dress/womens-nightsuit-5.jpg', '/assets/dress/womens-nightsuit-6.jpg', '/assets/dress/womens-nightsuit-7.jpg', '/assets/dress/womens-nightsuit-8.jpg'],
     '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['/assets/dress/barbie-pajama-2.jpg', '/assets/dress/barbie-pajama-3.jpg', '/assets/dress/barbie-pajama-4.jpg', '/assets/dress/barbie-pajama-5.jpg', '/assets/dress/barbie-pajama-sizechart.jpg'],
     '2-pcs-womens-stitched-jersey-printed-night-suit-loved': ['/assets/dress/loved-nightsuit-2.jpg', '/assets/dress/loved-nightsuit-3.jpg', '/assets/dress/loved-nightsuit-4.jpg', '/assets/dress/loved-nightsuit-5.jpg', '/assets/dress/loved-nightsuit-sizechart.jpg'],
     '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
-    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['/assets/dress/love-nightsuit-2.jpg', '/assets/dress/love-nightsuit-3.jpg', '/assets/dress/love-nightsuit-4.jpg', '/assets/dress/love-nightsuit-5.jpg', '/assets/dress/love-nightsuit-6.jpg', '/assets/dress/love-nightsuit-7.jpg', '/assets/dress/love-nightsuit-8.jpg', '/assets/dress/love-nightsuit-9.jpg', '/assets/dress/loved-nightsuit-sizechart.jpg']
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-red-butterfly-heart': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-pink-bows': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-orange-floral': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-white-lace-mandala': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-let-love-rise': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-blue-butterfly': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-spread-happiness': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love-happy-together': ['/assets/dress/loved-nightsuit-sizechart.jpg']
   };
 
   function viewProduct(slug) {
