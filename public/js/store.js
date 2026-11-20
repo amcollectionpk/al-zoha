@@ -152,6 +152,11 @@
           '<button class="btn btn-sm" data-wish="' + esc(p.slug) + '" title="Wishlist">' + (wished ? '♥' : '♡') + '</button>' +
         '</div></div></article>';
   }
+  /* ---------- SIZES: per-product size options (hoodies use M/L/XL/XXL by slug) ---------- */
+  var PRODUCT_SIZES = {
+    'penguin-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years'],
+    'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years']
+  };
   function addToCart(p, qty, size) {
     qty = Math.max(1, qty || 1);
     var found = null;
@@ -167,7 +172,7 @@
         var buy = btn.hasAttribute('data-buy');
         loadProduct(slug).then(function (d) {
           if (!d) { AMC.toast('Product not available'); return; }
-          if (/hoodie/i.test(d.product.slug)) { location.hash = '#/product/' + encodeURIComponent(d.product.slug); AMC.toast('Please select a size first'); return; }
+          if (/hoodie/i.test(d.product.slug) || PRODUCT_SIZES[d.product.slug]) { location.hash = '#/product/' + encodeURIComponent(d.product.slug); AMC.toast('Please select a size first'); return; }
           addToCart(d.product, 1);
           AMC.toast('Added to cart — ' + d.product.name);
           if (buy) location.hash = '#/cart';
@@ -193,7 +198,7 @@
 
   /* ---------- HOME ---------- */
   /* Category tiles use the NEW watch photos (old watch-*.jpg removed) */
-  var CAT_TILE_IMG = { "Men's Watches": '/assets/watches/wheel-watch-1.jpg', "Women's Watches": '/assets/watches/digital-bracelet-1.jpg', "Hoodies / Track Suits": '/assets/hoodies/bomber-track-black-1.jpg' };
+  var CAT_TILE_IMG = { "Men's Watches": '/assets/watches/wheel-watch-1.jpg', "Women's Watches": '/assets/watches/digital-bracelet-1.jpg', "Hoodies / Track Suits": '/assets/hoodies/bomber-track-black-1.jpg', "Dress": '/assets/dress/penguin-nightsuit-1.jpg', "Toys": '/assets/toys/lcd-tablet-1.jpg' };
   function catTileImg(c) { return CAT_TILE_IMG[c.name] || c.image_url || c.image || '/assets/watches/wheel-watch-1.jpg'; }
   /* ---------- HERO SLIDER (Home): 13 slides, auto-play 2s, arrows + dots + swipe ---------- */
   var heroTimer = null;
@@ -554,7 +559,10 @@
     'wooden-number-puzzle-for-kids-123': ['/assets/toys/number-puzzle-2.jpg', '/assets/toys/number-puzzle-3.jpg'],
     'infrared-helicopter-toy-for-kids': ['/assets/toys/helicopter-2.jpg', '/assets/toys/helicopter-3.jpg', '/assets/toys/helicopter-4.jpg', '/assets/toys/helicopter-5.jpg'],
     'rechargeable-panda-table-lamp-multicolor': ['/assets/toys/lamp-2.jpg', '/assets/toys/lamp-3.jpg', '/assets/toys/lamp-4.jpg', '/assets/toys/lamp-5.jpg'],
-    'plush-dancing-cactus-toy-for-kids': ['/assets/toys/cactus-2.jpg', '/assets/toys/cactus-3.jpg', '/assets/toys/cactus-4.jpg', '/assets/toys/cactus-5.jpg']
+    'plush-dancing-cactus-toy-for-kids': ['/assets/toys/cactus-2.jpg', '/assets/toys/cactus-3.jpg', '/assets/toys/cactus-4.jpg', '/assets/toys/cactus-5.jpg'],
+    'penguin-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/penguin-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
+    'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/whale-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
+    '2-pcs-womens-stitched-jersey-printed-night-suit': ['/assets/dress/womens-nightsuit-2.jpg', '/assets/dress/womens-nightsuit-3.jpg', '/assets/dress/womens-nightsuit-4.jpg', '/assets/dress/womens-nightsuit-5.jpg', '/assets/dress/womens-nightsuit-6.jpg', '/assets/dress/womens-nightsuit-7.jpg', '/assets/dress/womens-nightsuit-8.jpg']
   };
 
   function viewProduct(slug) {
@@ -576,6 +584,7 @@
         }).join('') + '</div></div>' :
         '<div class="pd-img"><img src="' + esc(p.image_url || '') + '" alt="' + esc(p.name) + '"></div>';
       var isHoodie = /hoodie/i.test(p.slug);
+      var sizeOpts = PRODUCT_SIZES[p.slug] || (isHoodie ? ['M', 'L', 'XL', 'XXL'] : null);
       var sizeHtml = isHoodie ?
         '<div class="size-guide"><h3>Size Guide (inches)</h3><table class="table"><thead><tr><th>Size</th><th>Chest</th><th>Length</th><th>Waist</th><th>Length</th></tr></thead><tbody>' +
         '<tr><td><b>M</b></td><td>18</td><td>25</td><td>26-29</td><td>38</td></tr>' +
@@ -593,7 +602,7 @@
         '<p class="muted">' + (p.stock_qty > 0 ? 'In stock — ready to dispatch' : 'Out of stock') + ' · Delivery Rs. 200 (FREE on orders Rs. 5,000+)</p>' +
         '<p>' + esc(p.description || '') + '</p>' +
         sizeHtml +
-        (isHoodie ? '<div class="pd-size"><span class="small muted">Size — select one *</span><div class="size-btns" id="pdSizes">' + ['M', 'L', 'XL', 'XXL'].map(function (s) { return '<button type="button" data-size="' + s + '">' + s + '</button>'; }).join('') + '</div><p class="form-error" id="pdSizeErr" style="display:none">Please select a size first.</p></div>' : '') +
+        (sizeOpts ? '<div class="pd-size"><span class="small muted">Size — select one *</span><div class="size-btns" id="pdSizes">' + sizeOpts.map(function (s) { return '<button type="button" data-size="' + s + '">' + s + '</button>'; }).join('') + '</div><p class="form-error" id="pdSizeErr" style="display:none">Please select a size first.</p></div>' : '') +
         '<div class="pd-size-qty"><div><span class="small muted">Quantity</span><div class="qty-ctrl"><button id="qMinus" type="button">−</button><input id="qVal" value="1" readonly><button id="qPlus" type="button">+</button></div></div></div>' +
         '<div style="display:grid;gap:10px;margin-top:16px">' +
           '<button class="btn btn-add" id="pdAdd">Add to Cart</button>' +
@@ -639,7 +648,7 @@
       var selSize = null;
       var sizeBtns = document.querySelectorAll('#pdSizes button');
       sizeBtns.forEach(function (b) { b.addEventListener('click', function () { selSize = b.getAttribute('data-size'); sizeBtns.forEach(function (x) { x.classList.toggle('sel', x === b); }); var e = document.getElementById('pdSizeErr'); if (e) e.style.display = 'none'; }); });
-      function needSize() { if (isHoodie && !selSize) { var e = document.getElementById('pdSizeErr'); if (e) e.style.display = 'block'; AMC.toast('Please select a size first'); return true; } return false; }
+      function needSize() { if (sizeOpts && !selSize) { var e = document.getElementById('pdSizeErr'); if (e) e.style.display = 'block'; AMC.toast('Please select a size first'); return true; } return false; }
       document.getElementById('pdAdd').addEventListener('click', function () { if (needSize()) return; addToCart(p, qty, selSize); AMC.toast('Added to cart'); });
       document.getElementById('pdBuy').addEventListener('click', function () { if (needSize()) return; addToCart(p, qty, selSize); location.hash = '#/checkout'; });
       document.getElementById('pdWish').addEventListener('click', function () {
@@ -675,7 +684,7 @@
     app.innerHTML = '<h1 class="section-title">My Cart</h1><div class="card">' +
       cart.map(function (c, i) {
         return '<div class="cart-row">' + (c.image ? '<img src="' + esc(c.image) + '" alt="">' : '<span>⌚</span>') +
-          '<div><a href="#/product/' + encodeURIComponent(c.slug) + '"><b>' + esc(c.name) + '</b></a>' + (c.size ? '<br><span class="muted small">Size: ' + esc(c.size) + '</span>' : (/hoodie/i.test(c.slug) ? '<br><span class="muted small">Size — select one *</span><div class="size-btns" data-cart-size="' + i + '">' + ['M', 'L', 'XL', 'XXL'].map(function (s) { return '<button type="button" data-size="' + s + '">' + s + '</button>'; }).join('') + '</div>' : '')) + '<br><span class="muted small">' + rs(c.price) + ' each</span>' +
+          '<div><a href="#/product/' + encodeURIComponent(c.slug) + '"><b>' + esc(c.name) + '</b></a>' + (c.size ? '<br><span class="muted small">Size: ' + esc(c.size) + '</span>' : ((/hoodie/i.test(c.slug) || PRODUCT_SIZES[c.slug]) ? '<br><span class="muted small">Size — select one *</span><div class="size-btns" data-cart-size="' + i + '">' + (PRODUCT_SIZES[c.slug] || ['M', 'L', 'XL', 'XXL']).map(function (s) { return '<button type="button" data-size="' + s + '">' + s + '</button>'; }).join('') + '</div>' : '')) + '<br><span class="muted small">' + rs(c.price) + ' each</span>' +
           '<div class="qty-ctrl" style="margin-top:6px"><button data-dec="' + i + '">−</button><input value="' + c.qty + '" readonly><button data-inc="' + i + '">+</button></div></div>' +
           '<div style="text-align:right"><b>' + rs(c.price * c.qty) + '</b><br><button class="btn btn-sm btn-ghost" data-del="' + i + '">Remove</button></div></div>';
       }).join('') + summaryHtml(sub, del) +
@@ -748,7 +757,7 @@
     quote();
     document.getElementById('coForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      var missingSize = cart.some(function (c) { return /hoodie/i.test(c.slug) && !c.size; });
+      var missingSize = cart.some(function (c) { return (/hoodie/i.test(c.slug) || PRODUCT_SIZES[c.slug]) && !c.size; });
       if (missingSize) { AMC.toast('Please select a size for the hoodie in your cart first'); location.hash = '#/cart'; return; }
       var pay = (app.querySelector('input[name="pay"]:checked') || {}).value || 'COD';
       var txnId = ((document.getElementById('coTxnId') || {}).value || '').trim();
