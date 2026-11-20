@@ -158,7 +158,8 @@
     'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years'],
     '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['1-2 Years', '3-4 Years', '5-6 Years', '7-8 Years', '8-10 Years'],
     '2-pcs-womens-stitched-jersey-printed-night-suit-loved': ['Medium', 'Large', 'X-Large'],
-    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['Medium', 'Large', 'X-Large']
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['Medium', 'Large', 'X-Large'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['Medium', 'Large', 'X-Large']
   };
   /* ---------- COLOURS: per-product colour options (same box style as sizes) ---------- */
   var PRODUCT_COLORS = {
@@ -573,7 +574,8 @@
     '2-pcs-womens-stitched-jersey-printed-night-suit': ['/assets/dress/womens-nightsuit-2.jpg', '/assets/dress/womens-nightsuit-3.jpg', '/assets/dress/womens-nightsuit-4.jpg', '/assets/dress/womens-nightsuit-5.jpg', '/assets/dress/womens-nightsuit-6.jpg', '/assets/dress/womens-nightsuit-7.jpg', '/assets/dress/womens-nightsuit-8.jpg'],
     '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['/assets/dress/barbie-pajama-2.jpg', '/assets/dress/barbie-pajama-3.jpg', '/assets/dress/barbie-pajama-4.jpg', '/assets/dress/barbie-pajama-5.jpg', '/assets/dress/barbie-pajama-sizechart.jpg'],
     '2-pcs-womens-stitched-jersey-printed-night-suit-loved': ['/assets/dress/loved-nightsuit-2.jpg', '/assets/dress/loved-nightsuit-3.jpg', '/assets/dress/loved-nightsuit-4.jpg', '/assets/dress/loved-nightsuit-5.jpg', '/assets/dress/loved-nightsuit-sizechart.jpg'],
-    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['/assets/dress/loved-nightsuit-sizechart.jpg']
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit': ['/assets/dress/loved-nightsuit-sizechart.jpg'],
+    '2-pcs-womens-stitched-cotton-jersey-printed-night-suit-love': ['/assets/dress/love-nightsuit-2.jpg', '/assets/dress/love-nightsuit-3.jpg', '/assets/dress/love-nightsuit-4.jpg', '/assets/dress/love-nightsuit-5.jpg', '/assets/dress/love-nightsuit-6.jpg', '/assets/dress/love-nightsuit-7.jpg', '/assets/dress/love-nightsuit-8.jpg', '/assets/dress/love-nightsuit-9.jpg', '/assets/dress/loved-nightsuit-sizechart.jpg']
   };
 
   function viewProduct(slug) {
