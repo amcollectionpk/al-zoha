@@ -155,7 +155,8 @@
   /* ---------- SIZES: per-product size options (hoodies use M/L/XL/XXL by slug) ---------- */
   var PRODUCT_SIZES = {
     'penguin-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years'],
-    'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years']
+    'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['1-2 Years', '3-4 Years', '5-6 Years'],
+    '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['1-2 Years', '3-4 Years', '5-6 Years', '7-8 Years', '8-10 Years']
   };
   function addToCart(p, qty, size) {
     qty = Math.max(1, qty || 1);
@@ -562,7 +563,8 @@
     'plush-dancing-cactus-toy-for-kids': ['/assets/toys/cactus-2.jpg', '/assets/toys/cactus-3.jpg', '/assets/toys/cactus-4.jpg', '/assets/toys/cactus-5.jpg'],
     'penguin-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/penguin-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
     'navy-blue-whale-print-2-piece-night-suit-for-boys-1-6y': ['/assets/dress/whale-nightsuit-2.jpg', '/assets/dress/nightsuit-size-chart.jpg'],
-    '2-pcs-womens-stitched-jersey-printed-night-suit': ['/assets/dress/womens-nightsuit-2.jpg', '/assets/dress/womens-nightsuit-3.jpg', '/assets/dress/womens-nightsuit-4.jpg', '/assets/dress/womens-nightsuit-5.jpg', '/assets/dress/womens-nightsuit-6.jpg', '/assets/dress/womens-nightsuit-7.jpg', '/assets/dress/womens-nightsuit-8.jpg']
+    '2-pcs-womens-stitched-jersey-printed-night-suit': ['/assets/dress/womens-nightsuit-2.jpg', '/assets/dress/womens-nightsuit-3.jpg', '/assets/dress/womens-nightsuit-4.jpg', '/assets/dress/womens-nightsuit-5.jpg', '/assets/dress/womens-nightsuit-6.jpg', '/assets/dress/womens-nightsuit-7.jpg', '/assets/dress/womens-nightsuit-8.jpg'],
+    '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt': ['/assets/dress/barbie-pajama-2.jpg', '/assets/dress/barbie-pajama-3.jpg', '/assets/dress/barbie-pajama-4.jpg', '/assets/dress/barbie-pajama-5.jpg', '/assets/dress/barbie-pajama-sizechart.jpg']
   };
 
   function viewProduct(slug) {
