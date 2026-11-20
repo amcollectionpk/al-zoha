@@ -283,4 +283,14 @@ INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_prim
 SELECT id, '/assets/dress/womens-nightsuit-1.jpg', '2 Pcs Women''s Stitched Jersey Printed Night Suit', 0, true FROM products WHERE slug = '2-pcs-womens-stitched-jersey-printed-night-suit'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/womens-nightsuit-1.jpg');
 
+-- 20) 2 Pcs Girl's Stitched Jersey Printed Pajama And Shirt — Rs. 1,699
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, '2 Pcs Girl''s Stitched Jersey Printed Pajama And Shirt', '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt', 'AZ-D-004', '2 Pcs Girl''s Stitched Jersey Printed Pajama And Shirt — a comfy 2-piece set for girls with a printed jersey shirt and matching pajama. Available in five shirt colours (Yellow, Red, Blue, White, Black) with pink pajama trousers featuring cute bows. Soft jersey fabric, perfect for daily wear and sleep.
+
+Material: Jersey. Pattern: Printed. Gender: Girl''s. Preferred Ages: 1-10 Years. Available Sizes: 1-2 Years, 3-4 Years, 5-6 Years, 7-8 Years, 8-10 Years. Number Of Pieces: 2 Pcs. Package Includes: 1 x Shirt, 1 x Pajama. Product Code: MZ2098204586DK. Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1699, NULL, '/assets/dress/barbie-pajama-1.jpg', 10, true, true FROM categories WHERE slug = 'dress'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/dress/barbie-pajama-1.jpg', '2 Pcs Girl''s Stitched Jersey Printed Pajama And Shirt', 0, true FROM products WHERE slug = '2-pcs-girls-stitched-jersey-printed-pajama-and-shirt'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/dress/barbie-pajama-1.jpg');
+
 COMMIT;
