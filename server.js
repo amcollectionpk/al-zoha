@@ -751,6 +751,20 @@ app.patch('/api/admin/products/:id', requireAuth, requireAdmin, asyncH(async (re
   res.json({ product: rows[0] });
 }));
 
+// Create (or update) a category — idempotent on slug, so the seed and the
+// admin panel can never create a duplicate category.
+app.post('/api/admin/categories', requireAuth, requireAdmin, asyncH(async (req, res) => {
+  const { name, slug, description, sortOrder } = req.body;
+  const imageUrl = req.body.imageUrl ?? req.body.image_url ?? null;
+  if (!name) return res.status(422).json({ error: 'name is required' });
+  const finalSlug = slug || name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const { rows } = await pool.query(
+    'INSERT INTO categories(name,slug,description,image_url,sort_order) VALUES($1,$2,$3,$4,$5) ON CONFLICT (slug) DO UPDATE SET name=EXCLUDED.name, description=EXCLUDED.description, image_url=EXCLUDED.image_url, sort_order=EXCLUDED.sort_order RETURNING *',
+    [name, finalSlug, description || null, imageUrl, sortOrder ?? 0]
+  );
+  res.status(201).json({ category: rows[0] });
+}));
+
 // ---------- Static frontend (added for deployable package: serves public/) ----------
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
