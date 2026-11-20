@@ -202,4 +202,14 @@ INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_prim
 SELECT id, '/assets/toys/helicopter-1.jpg', 'Infrared Helicopter Toy for Kids', 0, true FROM products WHERE slug = 'infrared-helicopter-toy-for-kids'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/helicopter-1.jpg');
 
+-- 15) Rechargeable Panda Table Lamp Multicolor — Rs. 1,599
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Rechargeable Panda Table Lamp Multicolor', 'rechargeable-panda-table-lamp-multicolor', 'AZ-T-007', 'Rechargeable Panda Table Lamp — a cute, soft silicone night light for kids and home. Tap to change colors: Golden, White, Red, Blue and more. USB rechargeable, up to 5 hours standby. Soft glow, safe for kids'' rooms and bedside tables.
+
+Material: Silicone. Connectivity: USB. Product Feature: Rechargeable. Size: Medium (20 x 5 x 5 cm). Light Color: Golden, White, Red, Blue. Color: Blue, Red, White, Yellow, Golden, Multicolor. Package Includes: 1 x Table Lamp. Battery Capacity: 20 mAh. Standby Time: 5 Hours. Voltage: 12 Volts. Watts: 20 Watt. Weight: 400 Gram. Product Code: MZ3147200027DAZZIN. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1599, NULL, '/assets/toys/lamp-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/lamp-1.jpg', 'Rechargeable Panda Table Lamp', 0, true FROM products WHERE slug = 'rechargeable-panda-table-lamp-multicolor'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/lamp-1.jpg');
+
 COMMIT;
