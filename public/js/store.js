@@ -859,13 +859,13 @@
   /* ---------- SPECIAL OFFERS ---------- */
   function viewOffers() {
     loadProducts({ sort: 'price_asc' }).then(function (all) {
-      var toys = all.filter(function (p) { return p.category_slug === 'toys'; });
-      var dress = all.filter(function (p) { return p.category_slug === 'dress'; });
+      var p999 = all.filter(function (p) { return Number(p.price) === 999; });
+      var p1999 = all.filter(function (p) { return Number(p.price) === 1999; });
       app.innerHTML = '<h1 class="section-title">Special Offers</h1>' +
         '<div class="offer-banner"><div><b>FREE Delivery</b><br><span class="muted">On every order of Rs. 5,000 or more — no code needed, applied automatically at checkout.</span></div><a class="btn btn-primary" href="#/shop">Shop Now</a></div>' +
         '<div class="offer-banner"><div><b>Cash on Delivery</b><br><span class="muted">Order now and pay at your doorstep, anywhere in Pakistan. JazzCash and Easypaisa also accepted.</span></div><a class="btn" href="#/cart">My Cart</a></div>' +
-        '<h2 class="section-title">Toys Under Rs. 1,600</h2>' + gridHtml(toys) +
-        '<h2 class="section-title">Night Suits</h2><p class="muted small" style="margin-top:-6px">Add a night suit with a toy to cross Rs. 5,000 and your delivery is free.</p>' + gridHtml(dress);
+        '<h2 class="section-title">Rs. 999 Offer</h2><p class="muted small" style="margin-top:-6px">All products at just Rs. 999.</p>' + gridHtml(p999) +
+        '<h2 class="section-title">Rs. 1,999 Offer</h2><p class="muted small" style="margin-top:-6px">All products at just Rs. 1,999.</p>' + gridHtml(p1999);
       bindCardButtons(app); window.scrollTo(0, 0);
     });
   }
