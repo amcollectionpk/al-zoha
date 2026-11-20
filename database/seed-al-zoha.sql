@@ -24,6 +24,10 @@ INSERT INTO categories (name, slug, description, image_url, sort_order) VALUES
     ('Hoodies / Track Suits', 'hoodies', 'Track suits and hoodies at Al-Zoha.', '/assets/hoodies/bomber-track-black-1.jpg', 3)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, description = EXCLUDED.description, sort_order = EXCLUDED.sort_order;
 
+INSERT INTO categories (name, slug, description, image_url, sort_order) VALUES
+    ('Toys', 'toys', 'Toys for kids at Al-Zoha.', '/assets/toys/lcd-tablet-1.jpg', 4)
+ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, description = EXCLUDED.description, sort_order = EXCLUDED.sort_order;
+
 -- 1) Men's Black Wheel Watch (Green Accent) — Rs. 2,499
 INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
 SELECT id, 'Men''s Black Wheel Watch (Green Accent)', 'mens-black-wheel-watch-green-accent', 'AZ-W-001', 'Men''s Black Wheel Watch with Green Accent — a stylish wristwatch, shown exactly as pictured. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 2499, NULL, '/assets/watches/wheel-watch-1.jpg', 10, true, true FROM categories WHERE slug = 'mens-watches'
@@ -93,5 +97,91 @@ ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXC
 INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
 SELECT id, '/assets/watches/denvosi-1.jpg', 'Men''s Black DENVOSI Watch', 0, true FROM products WHERE slug = 'mens-black-denvosi-watch'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/watches/denvosi-1.jpg');
+
+-- ============================================================================
+-- TOYS (added 2026-11-20 — real products sent by the user)
+-- ============================================================================
+
+-- 9) 6.5" LCD Drawing Tablet for Kids 3-6 Years — Rs. 999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, '6.5" LCD Drawing Tablet for Kids 3-6 Years', '6-5-inch-lcd-drawing-tablet-for-kids', 'AZ-T-001', 'Looking for a fun, educational, and durable drawing tool for your little one? This premium quality LCD writing tablet is the perfect choice for kids aged 3 to 6, offering hours of creative fun without the mess of traditional art supplies. Designed with a stylish, child-friendly design, it is ideal for home, school, or playtime use.
+
+The tablet is made from high-grade, durable plastic that withstands daily use and rough handling by energetic children. Its 6.5-inch screen is large enough for easy drawing and writing, while the smooth, responsive surface ensures a satisfying doodling experience. The included stylus is easy to grip and perfect for developing fine motor skills.
+
+- 6.5-inch LCD screen for clear, vibrant drawing
+- Durable plastic construction for long-lasting use
+- Ideal for ages 3 to 6 years
+- Comes with one stylus for easy writing and drawing
+- Perfect for arts and crafts, school projects, or home play
+
+Material: Plastic. Age: Suitable for 3 - 6 Years old Girls and Boys. Package Includes: 1 x LCD Writing Tablet. Product Code: MZ85420019ZMZMSR. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 999, NULL, '/assets/toys/lcd-tablet-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/lcd-tablet-1.jpg', '6.5" LCD Drawing Tablet for Kids 3-6 Years', 0, true FROM products WHERE slug = '6-5-inch-lcd-drawing-tablet-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/lcd-tablet-1.jpg');
+
+-- 10) HD Projection Flashlight for Kids 90° Rotating Animal Patterns — Rs. 1,099
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'HD Projection Flashlight for Kids 90° Rotating Animal Patterns', 'hd-projection-flashlight-for-kids', 'AZ-T-002', 'This adorable HD projection flashlight is the perfect way to turn any room into a magical storytelling zone for your little ones. Designed with soft, rounded edges and made from durable ABS plastic, it is built to withstand the rough-and-tumble play of Pakistani kids without breaking or scratching. The stylish, multicolor design in green, purple, and pink makes it a favorite for birthdays and Christmas gifts. With its 90-degree rotating lens and 8 charming animal patterns, it projects vivid images onto walls or ceilings, helping children develop visual imagination and cognitive skills while having fun.
+
+- Rotating 90-degree projection lens for adjustable focus
+- 8 different animal-themed patterns for endless entertainment
+- Made from durable, child-safe ABS plastic
+- Compact and lightweight design for easy handling
+- Perfect for wall or ceiling projection in dark rooms
+- Ideal gift for kids aged 3 years and up
+
+Material: ABS Plastic. Color: Green/Purple/Pink. Size: 11.5 x 4.3 cm. Age: 3Y+. Projection distance: 50-150 cm. Product Code: MZ59400000069OEKI. Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1099, NULL, '/assets/toys/flashlight-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/flashlight-1.jpg', 'HD Projection Flashlight for Kids', 0, true FROM products WHERE slug = 'hd-projection-flashlight-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/flashlight-1.jpg');
+
+-- 11) Wooden ABC Puzzle for Kids Learning & Play — Rs. 999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Wooden ABC Puzzle for Kids Learning & Play', 'wooden-abc-puzzle-for-kids', 'AZ-T-003', 'Perfect for Pakistani homes, this colorful wooden ABC puzzle helps your child learn letters and numbers while keeping them entertained for hours. Ideal for early learners, it is designed to match local educational needs and is safe for little hands.
+
+Made from premium quality, durable wood, this puzzle withstands daily play and rough handling. Its multicolor design captures attention and encourages visual learning, making it a stylish addition to any child''s playroom.
+
+- Made from 100% natural wood for long-lasting use
+- Features capital letters for early literacy
+- Multicolor design to boost visual engagement
+- Single-piece puzzle for easy storage and play
+- Safe, non-toxic material suitable for kids
+
+Material: Wood. Color: Multicolor. Package Includes: 1 x ABC Puzzle. Product Code: MZ55800000036KISS. Adult supervision is recommended due to small parts. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 999, NULL, '/assets/toys/abc-puzzle-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/abc-puzzle-1.jpg', 'Wooden ABC Puzzle for Kids', 0, true FROM products WHERE slug = 'wooden-abc-puzzle-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/abc-puzzle-1.jpg');
+
+-- 12) Pack of 2 Magic Water Coloring Books for Kids — Rs. 999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Pack of 2 Magic Water Coloring Books for Kids', 'pack-of-2-magic-water-coloring-books-for-kids', 'AZ-T-004', 'Magic Water Coloring Books for Kids — Pack of 2. Just fill the pen with water and color — the pictures appear like magic, then fade away in a few minutes so the pages can be used again and again. No mess, no ink, no stains. Reusable pages, boosts creativity, and safe for kids.
+
+Material: Plastic. Gender: Girl''s, Boy''s. Preferred Ages: 1-5 Years. Number Of Pieces: 2 Pcs. Product Feature: Animals. Color: Multicolor. Package Includes: 2 x Magic Water Canvas. Product Code: MZ3457200004VESE. Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 999, NULL, '/assets/toys/waterbook-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/waterbook-1.jpg', 'Pack of 2 Magic Water Coloring Books for Kids', 0, true FROM products WHERE slug = 'pack-of-2-magic-water-coloring-books-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/waterbook-1.jpg');
+
+-- 13) Wooden Number Puzzle for Kids 123 Multicolor Educational Toy — Rs. 999
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Wooden Number Puzzle for Kids 123 Multicolor Educational Toy', 'wooden-number-puzzle-for-kids-123', 'AZ-T-005', 'Give your child the perfect blend of fun and learning with our Fun Multicolor Wooden Number (123) Puzzles — ideal for early education and perfect for Pakistani homes where kids love to explore. Designed for local playtime, this sturdy wooden puzzle helps develop fine motor skills and number recognition without the hassle of fragile plastic toys.
+
+Made from premium quality, eco-friendly wood, this puzzle is built to last through daily play and rough handling. The vibrant multicolor design captures attention and encourages cognitive growth while keeping little hands busy. Unlike flimsy alternatives, our puzzle is durable, safe, and crafted to withstand the active energy of Pakistani kids. It is not just a toy — it is a smart educational tool that grows with your child.
+
+- Made from premium quality, durable wood
+- Multicolor design to spark curiosity and learning
+- Single-piece puzzle for easy assembly and play
+- Perfect for early education and cognitive development
+- Safe for kids with no toxic finishes or sharp edges
+- Ideal for home, daycare, or classroom use
+
+Material: Wood. Color: Multicolor. Size: 20 x 20 cm. Package Includes: 1 x Number Puzzle. Product Code: MZ55800000037KISS. Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 999, NULL, '/assets/toys/number-puzzle-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/number-puzzle-1.jpg', 'Wooden Number Puzzle for Kids 123', 0, true FROM products WHERE slug = 'wooden-number-puzzle-for-kids-123'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/number-puzzle-1.jpg');
 
 COMMIT;
