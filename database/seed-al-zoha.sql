@@ -184,4 +184,22 @@ INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_prim
 SELECT id, '/assets/toys/number-puzzle-1.jpg', 'Wooden Number Puzzle for Kids 123', 0, true FROM products WHERE slug = 'wooden-number-puzzle-for-kids-123'
 AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/number-puzzle-1.jpg');
 
+-- 14) Infrared Helicopter Toy for Kids 1-12 Years — Rs. 1,450
+INSERT INTO products (category_id, name, slug, sku, description, price, discount_price, image_url, stock_qty, is_featured, is_active)
+SELECT id, 'Infrared Helicopter Toy for Kids 1-12 Years', 'infrared-helicopter-toy-for-kids', 'AZ-T-006', 'This sleek infrared induction helicopter is the perfect gift for any young boy in Pakistan who loves thrilling aerial adventures. Designed for easy use, it takes off automatically with just a wave of your hand, making it ideal for kids who are just learning to fly. Its stylish design comes in vibrant colors like yellow, blue, and red, ensuring your child stands out while playing.
+
+Made from durable plastic, this toy is built to withstand rough play and outdoor fun. The electric drive system ensures smooth, responsive flight, while the infrared sensor technology lets your child control it without needing complex remote controls. Perfect for local weather conditions, it is a safe and exciting way to keep kids entertained indoors or out.
+
+- Infrared induction for hands-free flying
+- Automatic 3-second takeoff for easy use
+- Durable plastic construction for long-lasting play
+- Stylish color options: yellow, blue, and red
+- Safe for ages 1-12 with adult supervision
+
+Material: Plastic. Gender: Boy''s. Preferred Ages: 1-12 Years. Number Of Pieces: 1 Pc. Product Feature: Electric Drive Set. Color: Yellow / Blue / Red (shipped as per availability). Size: 18 x 16 x 11 cm. Package Includes: 1 x Hand Sensor Toy. Product Code: MZ1773200030BROOKS. Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard. Cash on Delivery available across Pakistan; delivery Rs. 200 (free on orders of Rs. 5,000 or more).', 1450, NULL, '/assets/toys/helicopter-1.jpg', 10, true, true FROM categories WHERE slug = 'toys'
+ON CONFLICT (slug) DO UPDATE SET category_id = EXCLUDED.category_id, price = EXCLUDED.price, discount_price = EXCLUDED.discount_price, image_url = EXCLUDED.image_url, description = EXCLUDED.description, is_featured = EXCLUDED.is_featured;
+INSERT INTO product_images (product_id, image_url, alt_text, sort_order, is_primary)
+SELECT id, '/assets/toys/helicopter-1.jpg', 'Infrared Helicopter Toy for Kids', 0, true FROM products WHERE slug = 'infrared-helicopter-toy-for-kids'
+AND NOT EXISTS (SELECT 1 FROM product_images pi WHERE pi.product_id = products.id AND pi.image_url = '/assets/toys/helicopter-1.jpg');
+
 COMMIT;
