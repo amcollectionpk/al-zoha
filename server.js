@@ -1,6 +1,6 @@
 /**
  * Al-Zoha — Node.js + Express Backend
- * Brand: Al-Zoha (Ladies Accessories) | Payments: COD, JazzCash, Easypaisa
+ * Brand: Al-Zoha (Mother Care & Baby Products) | Payments: COD, JazzCash, Easypaisa
  * (JazzCash/Easypaisa account number is shared with the customer on the
  *  confirmation call — it is NOT printed on the website yet)
  * Features: Secure order creation, server-side delivery calculation,
